@@ -1,5 +1,7 @@
 <main>
 
+    <!-- https://htmx.org/examples/sortable/ -->
+
     <style>
         tr.htmx-swapping td {
             opacity: 0;
