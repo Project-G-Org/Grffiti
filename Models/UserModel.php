@@ -10,7 +10,7 @@ class UserFields extends Fields {
     public static $position = 'position';
     public static $profilePic = 'profilePic';
 
-    public static function getField(): array {
+    public static function getFields(): array {
         return [
             self::$username, self::$password,
             self::$position, self::$profilePic
@@ -35,7 +35,7 @@ class UserModel extends Model {
              VALUES (null, ?, ?, ?, ?)"
         ); 
         
-        return $query -> execute(UserFields::getField());
+        return $query -> execute(UserFields::getFields());
     }
 
     public function updateData(Fields $tableFields): bool {
@@ -45,7 +45,7 @@ class UserModel extends Model {
              WHERE `" . UserFields::ID . "` = ?"
         ); 
         
-        return $query -> execute(UserFields::getField());
+        return $query -> execute(UserFields::getFields());
     }
 
     public function deleteData(Fields $tableFields, int $id): bool {
