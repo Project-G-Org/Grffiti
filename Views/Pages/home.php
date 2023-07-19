@@ -26,7 +26,7 @@
                 <td>Active</td>
 
                 <td>
-                    <button class="btn btn-danger" hx-delete="<?php echo INCLUDE_PATH ?>1" >
+                    <button class="btn btn-danger" hx-delete="<?php echo INCLUDE_PATH ?>1"> <!-- Send ajax receive from hx-delete -->
                         Delete
                     </button>
                 </td>
