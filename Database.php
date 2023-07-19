@@ -13,7 +13,7 @@ class MySql implements DBConnectionI {
             // (also prevent from data leak)
             try {
                 // Connect to the database
-                $this -> pdo = new PDO('mysql:host='. HOST . ';dbname=' . DATABASE, USER, PASSWORD, [
+                $this -> pdo = new PDO('mysql:host='. DATABASE_HOST . ';dbname=' . DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD, [
                     PDO :: MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
                 ]);
 

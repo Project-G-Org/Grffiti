@@ -40,7 +40,7 @@ session_start();
 const INCLUDE_PATH = 'http://localhost:8080/Grffiti/';
 
 const DATABASE_HOST = 'localhost:3306';
-const DATABASE_DATABASE = 'db_grffiti';
+const DATABASE_NAME = 'db_grffiti';
 const DATABASE_USER = 'root';
 const DATABASE_PASSWORD = '';
 
@@ -53,7 +53,7 @@ const POSITIONS_INT = [0, 1];
 
 // ---------------------------------------------------------
 // Imports
-// require "Database.php";
+require "Database.php";
 
 use Controllers\HomeController;
 

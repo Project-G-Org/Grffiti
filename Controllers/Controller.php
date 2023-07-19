@@ -11,7 +11,7 @@ abstract class Controller {
 
     /** Reference to a model class */
     protected object $model;
-
+    
     public function __construct(
         protected string $pageName,
     ) {}
