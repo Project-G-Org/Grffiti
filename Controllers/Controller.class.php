@@ -2,6 +2,8 @@
 
 namespace Controllers;
 
+use Views\MainView;
+
 abstract class Controller {
     /** Reference to a view class*/
     protected object $view;

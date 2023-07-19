@@ -40,7 +40,7 @@ session_start();
 const INCLUDE_PATH = 'http://localhost:8080/Grffiti/';
 
 const DATABASE_HOST = 'localhost:3306';
-const DATABASE_DATABASE = 'db_patelandia';
+const DATABASE_DATABASE = 'db_grffiti';
 const DATABASE_USER = 'root';
 const DATABASE_PASSWORD = '';
 
@@ -59,7 +59,7 @@ use Controllers\HomeController;
 // ---------------------------------------------------------
 // Autoload
 $autoload = function (string $className): void {
-    require $className . '.php';
+    require $className . '.class.php';
 };
 
 spl_autoload_register($autoload);
