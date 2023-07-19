@@ -21,8 +21,8 @@ class MainView
         //     "header"
         // );
         
-        include 'Pages/Templates/' . $this->header . '.php';
+        include 'Templates/' . $this->header . '.php';
         include 'Pages/' . $this->fileName . '.php';
-        include 'Pages/Templates/' . $this->footer . '.php';
+        include 'Templates/' . $this->footer . '.php';
     }
 }
