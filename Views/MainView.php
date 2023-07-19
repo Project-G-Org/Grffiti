@@ -13,9 +13,9 @@ class MainView
         private $footer = 'footer',
     ) {}
 
-    public function render(array $pageInfo = []): void
+    public function render(array $pageData = []): void
     {
-        // $pageInfo['header'] = (
+        // $pageData['header'] = (
         //     LoginModel::isLoggedIn() ? 
         //     ($_SESSION["position"] == POSITIONS['ADMIN'] ? "adminHeader" : "header") :
         //     "header"
