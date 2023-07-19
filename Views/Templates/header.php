@@ -8,6 +8,7 @@
 
         <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/header.css">
         <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/footer.css">
+        <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/response.css">
 
         <?php if(!is_null(@$pageData['css'])): ?>
             <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/<?php echo $pageData['css'] ?>">
