@@ -2,13 +2,19 @@
 
 namespace Models;
 
+use DbConnectionI;
+
 abstract class Fields {
     public const ID = "id";
 }
 
-interface Model {
-    public function getData(Fields $tableFields): array;
-    public function insertData(Fields $tableFields): bool;
-    public function updateData(Fields $tableFields): bool;
-    public function deleteData(Fields $tableFields): bool;
+abstract class Model {
+    public function __construct(
+        protected DbConnectionI $pdo,
+    ) { }
+
+    public abstract function getData(Fields $tableFields): array;
+    public abstract function insertData(Fields $tableFields): bool;
+    public abstract function updateData(Fields $tableFields): bool;
+    public abstract function deleteData(Fields $tableFields, int $id): bool;
 }
