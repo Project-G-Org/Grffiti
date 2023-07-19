@@ -3,6 +3,8 @@
 namespace Models;
 
 class UserFields extends Fields {
+    public static $tableName = "tb_users";
+
     public static $username = 'username';
     public static $password = 'password';
     public static $position = 'position';

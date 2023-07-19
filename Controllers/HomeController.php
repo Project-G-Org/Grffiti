@@ -2,4 +2,8 @@
 
 namespace Controllers;
 
-class HomeController extends Controller { }
+use Helpers\Router;
+
+class HomeController extends Controller { 
+    use Router;
+}

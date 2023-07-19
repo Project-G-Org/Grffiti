@@ -67,10 +67,8 @@ spl_autoload_register($autoload);
 
 // ---------------------------------------------------------
 // Controllers
-$homeController = new HomeController();
+$homeController = new HomeController(pageName: 'home');
 
 // ---------------------------------------------------------
 // Router
-Helpers\Router :: get('/', function() use($homeController): void {
-    $homeController -> execute("home");
-});
+$homeController -> addRoute('/', $homeController);

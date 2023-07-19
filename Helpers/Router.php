@@ -5,7 +5,9 @@
 
 namespace Helpers;
 
-class Router
+use Controllers\Controller;
+
+trait Router
 {
 	public static $executed;
 
@@ -13,7 +15,7 @@ class Router
 		return self :: $executed;
 	}
 	
-	public static function get($path, $arg) {
+	public function addRoute($path, Controller $arg) {
 		$url = @$_GET['url'];
 
 		if ($path == '') {
@@ -40,7 +42,7 @@ class Router
 		if ($url == $path) {
 			self :: $executed = true;
 
-			$arg();
+			$arg->execute();
 
 			return true;
 		}
@@ -69,7 +71,7 @@ class Router
 			if ($ok) {
 				self :: $executed = true;
 
-				$arg($par);
+				$arg->execute();
 
 				return true;
 			}
@@ -77,7 +79,7 @@ class Router
 	}
 
 
-	public static function post($path, $arg) {
+	public function post($path, $arg) {
 		if (!empty($_POST)) {
 			$url = @$_GET['url'];
 
