@@ -59,7 +59,7 @@ use Controllers\HomeController;
 // ---------------------------------------------------------
 // Autoload
 $autoload = function (string $className): void {
-    require $className . '.class.php';
+    require $className . '.php';
 };
 
 spl_autoload_register($autoload);
