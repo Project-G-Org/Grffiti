@@ -71,5 +71,5 @@ $homeController = new HomeController();
 // ---------------------------------------------------------
 // Router
 Helpers\Router :: get('/', function() use($homeController): void {
-    $homeController -> execute();
+    $homeController -> execute("home");
 });
