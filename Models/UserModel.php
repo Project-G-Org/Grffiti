@@ -1,5 +1,7 @@
 <?php
 
+//https://www.codexworld.com/store-retrieve-image-from-database-mysql-php/
+
 namespace Models;
 
 class UserFields extends Fields {
@@ -8,7 +10,7 @@ class UserFields extends Fields {
     public static $username = 'username';
     public static $password = 'password';
     public static $position = 'position';
-    public static $profilePic = 'profilePic';
+    public static $profilePic = 'profile_pic';
 
     public static function getFields(): array {
         return [
@@ -19,7 +21,7 @@ class UserFields extends Fields {
 }
 
 class UserModel extends Model {
-    public function getData(Fields $tableFields): array { 
+    public function getData(): array { 
         $query = $this -> pdo -> connect() -> prepare(
             "SELECT * FROM `" . UserFields::$tableName . "` ORDER BY " . UserFields::ID . " DESC"
         );
@@ -29,7 +31,20 @@ class UserModel extends Model {
         return $query -> fetchAll();
     }
 
-    public function insertData(Fields $tableFields): bool { 
+    public function findData(string $username, string $password): int {
+        $query = $this->pdo->connect()->prepare(
+            "SELECT * FROM `" . UserFields::$tableName . "`
+             WHERE `" . UserFields::$username . "` = ? AND `" . UserFields::$password . "` = ?;"
+        );
+
+        $query->execute([
+            UserFields::$username, UserFields::$password
+        ]);
+        
+        return $query->rowCount();
+    }
+
+    public function insertData(): bool { 
         $query = $this -> pdo -> connect() -> prepare(
             "INSERT INTO `" . UserFields::$tableName . "`
              VALUES (null, ?, ?, ?, ?)"
@@ -38,7 +53,7 @@ class UserModel extends Model {
         return $query -> execute(UserFields::getFields());
     }
 
-    public function updateData(Fields $tableFields): bool {
+    public function updateData(): bool {
         $query = $this -> pdo -> connect() -> prepare(
             "UPDATE `" . UserFields::$tableName . "`
              SET `" . UserFields::$username . "`=?, `" . UserFields::$password . "`=?, `" . UserFields::$position . "`=?, `" . UserFields::$profilePic . "`=?
@@ -48,7 +63,7 @@ class UserModel extends Model {
         return $query -> execute(UserFields::getFields());
     }
 
-    public function deleteData(Fields $tableFields, int $id): bool {
+    public function deleteData(int $id): bool {
         $query = $this -> pdo -> connect() -> prepare(
             "DELETE FROM `" . UserFields::$tableName . "` WHERE `" . UserFields::ID . "`=?"
         );

@@ -56,6 +56,8 @@ const POSITIONS_INT = [0, 1];
 require "Database.php";
 
 use Controllers\HomeController;
+use Controllers\LoginController;
+use Controllers\PostController;
 
 // ---------------------------------------------------------
 // Autoload
@@ -68,7 +70,10 @@ spl_autoload_register($autoload);
 // ---------------------------------------------------------
 // Controllers
 $homeController = new HomeController(pageName: 'home');
-
+$postController = new PostController(pageName: 'post');
+$loginController = new LoginController(pageName: 'login');
 // ---------------------------------------------------------
 // Router
 $homeController -> addRoute('/', $homeController);
+$postController -> addRoute('/post', $postController);
+$loginController -> addRoute('/login', $loginController);
