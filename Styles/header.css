@@ -1,12 +1,26 @@
-body{
-    position: absolute;
-    background-color: blueviolet;
-}
+/* Color Theme Swatches in Hex */
+.COR-1-hex { color: #4791FF; }
+.COR-2-hex { color: #FF7AC8; }
+.COR-3-hex { color: #203554; }
+.COR-4-hex { color: #FFC654; }
+.COR-5-hex { color: #48BF3F; }
 
 nav#nav-header-container {
-    position: absolute !important;
     display: flex !important;
-    height: 17vh;
+    height: 30vh;
     width: 100vw;
-    background-color: black;
+    background-color: #ffb3df;
+}
+
+#nav-header-back{
+    height: 90%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#nav-header-img{
+    position: relative;
+    height: 100%;
 }

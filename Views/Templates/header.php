@@ -15,9 +15,9 @@
             <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/<?php echo $pageData['css'] ?>">
         <?php endif ?>
             
-        <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/header.css">
-        <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/footer.css">
-        <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/response.css">
+        <link rel="stylesheet" href="<?php echo INCLUDE_PATH?>Styles/header.css">
+        <link rel="stylesheet" href="<?php echo INCLUDE_PATH?>Styles/footer.css">
+        <link rel="stylesheet" href="<?php echo INCLUDE_PATH?>Styles/response.css">
     </head>
 
     <body>
@@ -29,7 +29,8 @@
 
         <header>
             <nav id="nav-header-container">
-                <!-- <img id="nav-header-img" src="<?php echo INCLUDE_PATH?>Assets/LOGO.png"> -->
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, eos. Id minus ipsum dolorem nam recusandae laudantium voluptas. Id, recusandae earum. Quisquam culpa numquam omnis explicabo quam repellendus quod perspiciatis.</p>
+                <a id="nav-header-back" href="<?php echo INCLUDE_PATH?>">
+                    <img id="nav-header-img" src="<?php echo INCLUDE_PATH?>Assets/LOGO.png">
+                </a>
             </nav>
         </header>
