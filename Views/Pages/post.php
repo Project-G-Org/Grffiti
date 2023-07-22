@@ -19,7 +19,7 @@
             <?php if (preg_match('~[^\x20-\x7E\t\r\n]~', $imgName) > 0): ?>
                 <img src="data:image/jpg;base64,<?php echo base64_encode($row['profile_pic']) ?>">
             <?php else: ?>
-                <img src="<?php echo INCLUDE_PATH ?>Assets/<?php echo $row['profile_pic'] ?>.png">
+                <img src="<?php echo INCLUDE_PATH ?>Assets/Temp/<?php echo $row['profile_pic'] ?>.png">
             <?php endif ?>
         </ul>
 
