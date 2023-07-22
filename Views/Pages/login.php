@@ -58,7 +58,7 @@
 
             <div class="form-group m-2">
                 <label for="exampleFormControlFile1">Foto de Perfil</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" class="form-control-file" id="profile-pic" name="profile-pic">
             </div>
 
             <div class="form-group m-2">
@@ -70,6 +70,11 @@
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
 
             <a class="small" href="<?php echo INCLUDE_PATH ?>login">login</a>
+            <?php
+                if (isset($_POST['register'])) {
+                    $loginController -> register();
+                }
+            ?>
         </form>
 
     <?php endif ?>

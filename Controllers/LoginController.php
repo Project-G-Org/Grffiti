@@ -14,9 +14,11 @@ class LoginController extends Controller {
     public function __construct(
         protected string $pageName = "",
     ) {
+        parent::__construct($pageName);
+
         $this -> model = new UserModel(new MySql);
     }
-
+    
     public static function initSession(string $user, string $password, string $position): void {
         $_SESSION['isLogged'] = true;
         $_SESSION['user'] = $user;
@@ -54,8 +56,25 @@ class LoginController extends Controller {
         Response::simpleResponse('error', 'Nome de usuário ou senha incorretos');
     }
 
-    public function register() {
+    public function register(): void {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $profilePic = $$_POST['profile-pic'];
+        $description = $_POST['description'];
 
+        $targetDir = '../Assets/';
+        $target_file = $targetDir . basename($_FILES["imageUpload"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+        if (move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file)) {
+            echo "The file ". basename( $_FILES["imageUpload"]["name"]). " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    
+        $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
+
+        $user = $this -> model -> insertData();
     }
 
     public function rememberMe(string $user, string $password, int $position): void {
@@ -65,4 +84,8 @@ class LoginController extends Controller {
             self::initSession($user, $password, $position);
         }
     }
+}
+
+trait ImageUploader {
+
 }
