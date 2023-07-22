@@ -1,13 +1,19 @@
 <?php
 
     use Controllers\LoginController;
-
     $loginController = new LoginController();
+    
 ?>
 
 <main>
     <?php if (!isset($_GET['register'])): ?>
-        <form method="post" class="form-signin w-100 m-auto">
+        <?php  
+            if (isset($_POST['login'])) {
+                $loginController -> login();
+            }
+        ?>
+
+        <form action="" method="post" class="form-signin w-100 m-auto">
             <img class="mb-4" src="#" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
@@ -20,27 +26,26 @@
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                 <label for="floatingPassword">Password</label>
             </div>
-
+            
             <div class="form-check text-start my-3">
                 <label class="form-check-label" for="flexCheckDefault">
                     Remember me
                 </label>
                 <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
             </div>
-
+            
             <button class="btn btn-primary w-100 py-2" name="login" type="submit">Sign in</button>
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
-
+            
             <a class="small" href="<?php echo INCLUDE_PATH ?>login?register">Register</a>
-
-            <?php  
-                if (isset($_POST['login'])) {
-                    $loginController -> login();
-                }
-            ?>
         </form>
 
     <?php else: ?>
+        <?php
+            if (isset($_POST['register'])) {
+                // $loginController -> register();
+            }
+        ?>
 
         <form method="post" class="form-signin w-100 m-auto" enctype="multipart/form-data">
             <img class="mb-4" src="#" alt="" width="72" height="57">
@@ -70,11 +75,6 @@
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
 
             <a class="small" href="<?php echo INCLUDE_PATH ?>login">login</a>
-            <?php
-                if (isset($_POST['register'])) {
-                    $loginController -> register();
-                }
-            ?>
         </form>
 
     <?php endif ?>
