@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Grffiti Project</title>
-        <link rel="icon" type="image/x-icon" href="<?php echo INCLUDE_PATH?>Assets/LOGO.ico">
+        <link rel="icon" type="image/png" href="<?php echo INCLUDE_PATH?>Assets/LOGO.png">
 
         <!-- Vendor -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
