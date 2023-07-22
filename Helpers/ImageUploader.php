@@ -10,7 +10,7 @@ class ImageUploader {
     ];
 
     public static function receiveUserImageFromPost(string $inputName): string {
-        $targetDir = 'Assets/';
+        $targetDir = 'Assets/Temp';
         $target_file = $targetDir . basename($_FILES[$inputName]["name"]);
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
