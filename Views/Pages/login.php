@@ -53,10 +53,16 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
 
-            <button class="btn btn-primary w-100 py-2" type="submit">Enviar</button>
+            <button class="btn btn-primary w-100 py-2" type="submit" name="login">Enviar</button>
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
 
             <a class="small" href="<?php echo INCLUDE_PATH ?>login">login</a>
+            
+            <?php  
+                if ($_POST['login']) {
+                    login();
+                }
+            ?>
         </form>
 
     <?php endif ?>

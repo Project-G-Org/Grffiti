@@ -8,17 +8,16 @@
 
         <!-- Vendor -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         
         <!-- Custom CSS -->
         <?php if(!is_null(@$pageData['css'])): ?>
             <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/<?php echo $pageData['css'] ?>">
         <?php endif ?>
-
+            
+        <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/header.css">
         <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/footer.css">
         <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/response.css">
-        <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>Styles/header.css">
     </head>
 
     <body>

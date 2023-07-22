@@ -34,6 +34,12 @@ class LoginController extends Controller {
         die;
     }
 
+    public function login() {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $description = $_POST['description'];
+    }
+
     public function rememberMe(string $user, string $password, int $position): void {
         $users = $this -> model -> findData();
 
