@@ -8,7 +8,6 @@
 
         <!-- Vendor -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         
         <!-- Custom CSS -->
@@ -29,7 +28,8 @@
         <script src="https://unpkg.com/htmx.org@1.9.3" integrity="sha384-lVb3Rd/Ca0AxaoZg5sACe8FJKF0tnUgR2Kd7ehUOG5GCcROv5uBIZsOqovBAcWua" crossorigin="anonymous"></script>
 
         <header>
-            <nav class="nav-head">
-                <img src="<?php echo INCLUDE_PATH?>Assets/LOGO.png" height="100%" width="100">
+            <nav id="nav-header-container">
+                <!-- <img id="nav-header-img" src="<?php echo INCLUDE_PATH?>Assets/LOGO.png"> -->
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, eos. Id minus ipsum dolorem nam recusandae laudantium voluptas. Id, recusandae earum. Quisquam culpa numquam omnis explicabo quam repellendus quod perspiciatis.</p>
             </nav>
         </header>
