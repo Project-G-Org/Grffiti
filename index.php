@@ -39,7 +39,7 @@ session_start();
 // Constants
 const INCLUDE_PATH = 'http://localhost:8080/Grffiti/';
 
-const DATABASE_HOST = 'localhost:3307';
+const DATABASE_HOST = 'localhost:3306';
 const DATABASE_NAME = 'db_grffiti';
 const DATABASE_USER = 'root';
 const DATABASE_PASSWORD = '';
@@ -69,9 +69,9 @@ spl_autoload_register($autoload);
 
 // ---------------------------------------------------------
 // Controllers
-$homeController = new HomeController('home');
-$postController = new PostController('post');
-$loginController = new LoginController('login');
+$homeController = new HomeController(pageName: 'home');
+$postController = new PostController(pageName: 'post');
+$loginController = new LoginController(pageName: 'login');
 
 // ---------------------------------------------------------
 // Router

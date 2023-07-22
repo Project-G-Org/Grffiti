@@ -28,12 +28,8 @@
         <script src="https://unpkg.com/htmx.org@1.9.3" integrity="sha384-lVb3Rd/Ca0AxaoZg5sACe8FJKF0tnUgR2Kd7ehUOG5GCcROv5uBIZsOqovBAcWua" crossorigin="anonymous"></script>
 
         <header>
-            <img src="#" alt="" id="nav-img">
-
-            <nav>
-                <li class="nav-item"><a href="#">Placeholder</a></li>
-                <li class="nav-item"><a href="#">Placeholder</a></li>
-                <li class="nav-item"><a href="#">Placeholder</a></li>
-                <li class="nav-item"><a href="#">Placeholder</a></li>
+            <nav id="nav-header-container">
+                <!-- <img id="nav-header-img" src="<?php echo INCLUDE_PATH?>Assets/LOGO.png"> -->
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, eos. Id minus ipsum dolorem nam recusandae laudantium voluptas. Id, recusandae earum. Quisquam culpa numquam omnis explicabo quam repellendus quod perspiciatis.</p>
             </nav>
         </header>
