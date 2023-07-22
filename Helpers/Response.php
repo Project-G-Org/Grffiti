@@ -11,6 +11,8 @@ use InvalidArgumentException;
  * @Use InvalidArgumentsException
  * 
  * - Get a response to test safely features, and Also giving a log for the client
+ * 
+ * https://www.php.net/manual/en/language.exceptions.extending.php
 */
 class Response {
     /**
