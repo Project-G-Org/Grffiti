@@ -39,17 +39,20 @@ session_start();
 // Constants
 const INCLUDE_PATH = 'http://localhost:8080/Grffiti/';
 
-const DATABASE_HOST = 'localhost:3306';
+const DATABASE_HOST = 'localhost:3307';
 const DATABASE_NAME = 'db_grffiti';
 const DATABASE_USER = 'root';
 const DATABASE_PASSWORD = '';
 
 const POSITIONS = [
-    'USER' => 0,
-    'ADMIN' => 1,
+    'USER',
+    'ADMIN'
 ];
 
-const POSITIONS_INT = [0, 1];
+const POSITIONS_INT = [
+    'USER' => 0,
+    'ADMIN' => 1
+];
 
 // ---------------------------------------------------------
 // Imports

@@ -4,17 +4,21 @@
 
 namespace Models;
 
+use PDOStatement;
+
 class UserFields extends Fields {
     public static $tableName = "tb_users";
 
     public static $username = 'username';
     public static $password = 'password';
+    public static $description = 'description';
     public static $position = 'position';
     public static $profilePic = 'profile_pic';
 
     public static function getFields(): array {
         return [
             self::$username, self::$password,
+            self::$description,
             self::$position, self::$profilePic
         ];
     }
@@ -31,23 +35,23 @@ class UserModel extends Model {
         return $query -> fetchAll();
     }
 
-    public function findData(string $username, string $password): int {
+    public function findData(string $username, string $password): PDOStatement {
         $query = $this->pdo->connect()->prepare(
             "SELECT * FROM `" . UserFields::$tableName . "`
              WHERE `" . UserFields::$username . "` = ? AND `" . UserFields::$password . "` = ?;"
         );
 
         $query->execute([
-            UserFields::$username, UserFields::$password
+            $username, $password
         ]);
         
-        return $query->rowCount();
+        return $query;
     }
 
     public function insertData(): bool { 
         $query = $this -> pdo -> connect() -> prepare(
             "INSERT INTO `" . UserFields::$tableName . "`
-             VALUES (null, ?, ?, ?, ?)"
+             VALUES (null, ?, ?, ?, ?, ?)"
         ); 
         
         return $query -> execute(UserFields::getFields());
@@ -56,7 +60,12 @@ class UserModel extends Model {
     public function updateData(): bool {
         $query = $this -> pdo -> connect() -> prepare(
             "UPDATE `" . UserFields::$tableName . "`
-             SET `" . UserFields::$username . "`=?, `" . UserFields::$password . "`=?, `" . UserFields::$position . "`=?, `" . UserFields::$profilePic . "`=?
+             SET `" .
+             UserFields::$username . "`=?, `" .
+             UserFields::$password . "`=?, `" .
+             UserFields::$description . "`=?, `" .
+             UserFields::$position . "`=?, `" .
+             UserFields::$profilePic . "`=?
              WHERE `" . UserFields::ID . "` = ?"
         ); 
         
