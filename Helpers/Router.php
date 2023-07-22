@@ -78,7 +78,6 @@ trait Router
 		}
 	}
 
-
 	public function post($path, $arg) {
 		if (!empty($_POST)) {
 			$url = @$_GET['url'];

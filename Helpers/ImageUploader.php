@@ -1,5 +1,9 @@
 <?php
 
+namespace Helpers;
+
+use Exception;
+
 class ImageUploader {
     private static array $validImageTypes = [
         '.jpg', '.png', '.jpeg' , '.webp'
@@ -20,6 +24,6 @@ class ImageUploader {
             throw new Exception('Sorry, there was an error uploading your file.');
         }
         
-        return basename($_FILES["profile_pic"]["name"], $imageFileType); 
+        return basename($_FILES["profile_pic"]["name"], $imageFileType);
     }
 }

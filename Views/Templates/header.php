@@ -30,6 +30,5 @@
         <header>
             <nav id="nav-header-container">
                 <!-- <img id="nav-header-img" src="<?php echo INCLUDE_PATH?>Assets/LOGO.png"> -->
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, eos. Id minus ipsum dolorem nam recusandae laudantium voluptas. Id, recusandae earum. Quisquam culpa numquam omnis explicabo quam repellendus quod perspiciatis.</p>
             </nav>
         </header>

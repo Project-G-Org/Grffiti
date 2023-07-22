@@ -2,11 +2,10 @@
 
 namespace Controllers;
 
-use Error;
-use ErrorException;
 use Exception;
 use Helpers\Response;
 use Helpers\Router;
+use Helpers\ImageUploader;
 use Models\UserFields;
 use Models\UserModel;
 use MySql;
@@ -59,7 +58,6 @@ class LoginController extends Controller {
         Response::simpleResponse('error', 'Nome de usuário ou senha incorretos');
     }
     
-
     public function register(): void {
         $username = $_POST['username'];
         $password = $_POST['password'];
