@@ -5,22 +5,68 @@
 .COR-4-hex { color: #FFC654; }
 .COR-5-hex { color: #48BF3F; }
 
-nav#nav-header-container {
-    display: flex !important;
+#nav-header{
+    display: flex;
+    flex-direction: column;
     height: 30vh;
     width: 100vw;
-    background-color: #ffb3df;
+    background-color: #050d1a;
+}
+
+#nav-header-container {
+    display: flex !important;
+    position: fixed;
+    height: 10vh;
+    width: 100vw;
+    background-color: #050d1a;
 }
 
 #nav-header-back{
-    height: 90%;
+    height: 80%;
     position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 10%;
+    left: 1%;
 }
 
 #nav-header-img{
     position: relative;
     height: 100%;
+}
+
+#nav-header-container-links{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+.nav-header-container-links-list{
+    float: left;
+}
+
+.nav-header-container-links-list a{
+    display: block;
+    font-family: 'Secular One', sans-serif;
+    font-size: larger;
+    color: #7694c2;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-decoration: none;
+}
+
+.nav-header-container-links-list a:hover{
+    color: #415f8d;
+}
+
+#nav-header-search{
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
 }
