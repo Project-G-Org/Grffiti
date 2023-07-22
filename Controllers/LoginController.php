@@ -2,6 +2,9 @@
 
 namespace Controllers;
 
+use Error;
+use ErrorException;
+use Exception;
 use Helpers\Response;
 use Helpers\Router;
 use Models\UserFields;
@@ -47,7 +50,6 @@ class LoginController extends Controller {
 
         if ($user->rowCount() == 1) {
             $info = $user -> fetch();
-            echo "<h2>".$info[UserFields::$position]."</h2>";
             self::initSession($username, $password, $info[UserFields::$position]);
 
             header('Location: ' . INCLUDE_PATH);
@@ -56,29 +58,24 @@ class LoginController extends Controller {
 
         Response::simpleResponse('error', 'Nome de usuário ou senha incorretos');
     }
+    
 
     public function register(): void {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $description = $_POST['description'];
 
-        $targetDir = 'Assets/';
-        $target_file = $targetDir . basename($_FILES["profile_pic"]["name"]);
-        $uploadOk = 1;
-        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-
-        if (move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["profile_pic"]["name"]). " has been uploaded.";
-        } else {
-            echo "Sorry, there was an error uploading your file.";
+        try {
+            $profilePic = ImageUploader::receiveUserImageFromPost('profile_pic');
+        } catch (Exception $e) {
+            // TODO if exception caught user Helpers\Response to display error to client
+            // or give the option to use the default profile pic
+            echo $e->getMessage();
+            $profilePic = '';
         }
-    
-        $image = basename($_FILES["profile_pic"]["name"], ".png"); // used to store the filename in a variable
-
-        echo "<h2>AAAAAA</h2>";
 
         $this -> model -> insertData([
-            $username, $password, $description, 'USER', $image
+            $username, $password, $description, Positions::User->value, $profilePic
         ]);
     }
 
@@ -91,6 +88,26 @@ class LoginController extends Controller {
     }
 }
 
-trait ImageUploader {
+class ImageUploader {
+    private static array $validImageTypes = [
+        '.jpg', '.png', '.jpeg' , '.webp'
+    ];
 
+    public static function receiveUserImageFromPost(string $inputName): string {
+        $targetDir = 'Assets/';
+        $target_file = $targetDir . basename($_FILES[$inputName]["name"]);
+        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+        if (in_array($imageFileType, self::$validImageTypes)) {
+            throw new Exception('Not a image file');
+        }
+
+        if (move_uploaded_file($_FILES[$inputName]["tmp_name"], $target_file)) {
+            echo "The file ". basename($_FILES[$inputName]["name"]) . " has been uploaded.";
+        } else {
+            throw new Exception('Sorry, there was an error uploading your file.');
+        }
+        
+        return basename($_FILES["profile_pic"]["name"], $imageFileType); 
+    }
 }
