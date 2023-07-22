@@ -7,6 +7,7 @@ use Helpers\Router;
 use Models\UserFields;
 use Models\UserModel;
 use MySql;
+use Positions;
 
 class LoginController extends Controller { 
     use Router;
@@ -18,7 +19,7 @@ class LoginController extends Controller {
 
         $this -> model = new UserModel(new MySql);
     }
-    
+
     public static function initSession(string $user, string $password, string $position): void {
         $_SESSION['isLogged'] = true;
         $_SESSION['user'] = $user;
@@ -59,22 +60,26 @@ class LoginController extends Controller {
     public function register(): void {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $profilePic = $$_POST['profile-pic'];
         $description = $_POST['description'];
 
-        $targetDir = '../Assets/';
-        $target_file = $targetDir . basename($_FILES["imageUpload"]["name"]);
+        $targetDir = 'Assets/';
+        $target_file = $targetDir . basename($_FILES["profile_pic"]["name"]);
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-        if (move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["imageUpload"]["name"]). " has been uploaded.";
+
+        if (move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $target_file)) {
+            echo "The file ". basename( $_FILES["profile_pic"]["name"]). " has been uploaded.";
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
     
-        $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
+        $image = basename($_FILES["profile_pic"]["name"], ".png"); // used to store the filename in a variable
 
-        $user = $this -> model -> insertData();
+        echo "<h2>AAAAAA</h2>";
+
+        $this -> model -> insertData([
+            $username, $password, $description, 'USER', $image
+        ]);
     }
 
     public function rememberMe(string $user, string $password, int $position): void {

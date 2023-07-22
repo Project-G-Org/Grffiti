@@ -42,28 +42,28 @@
 
     <?php else: ?>
 
-        <form class="form-signin w-100 m-auto">
+        <form method="post" class="form-signin w-100 m-auto" enctype="multipart/form-data">
             <img class="mb-4" src="#" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Register</h1>
 
             <div class="form-group m-2">
-                <label for="floatingInput">Usuário</label>
-                <input type="text" class="form-control" id="floatingInput" placeholder="Nome de usuário">
+                <label for="username">Usuário</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Nome de usuário">
             </div>
             
             <div class="form-group m-2">
-                <label for="floatingPassword">Senha</label>
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Senha">
+                <label for="password">Senha</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Senha">
             </div>
 
             <div class="form-group m-2">
                 <label for="exampleFormControlFile1">Foto de Perfil</label>
-                <input type="file" class="form-control-file" id="profile-pic" name="profile-pic">
+                <input type="file" class="form-control-file" id="profile_pic" name="profile_pic">
             </div>
 
             <div class="form-group m-2">
-                <label for="exampleFormControlTextarea1">Descrição</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label for="description">Descrição</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
             </div>
 
             <button class="btn btn-primary w-100 py-2" type="submit" name="register">Enviar</button>

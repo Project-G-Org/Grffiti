@@ -44,15 +44,10 @@ const DATABASE_NAME = 'db_grffiti';
 const DATABASE_USER = 'root';
 const DATABASE_PASSWORD = '';
 
-const POSITIONS = [
-    'USER',
-    'ADMIN'
-];
-
-const POSITIONS_INT = [
-    'USER' => 0,
-    'ADMIN' => 1
-];
+enum Positions: string {
+    case User = 'USER';
+    case Admin = 'ADMIN';
+};
 
 // ---------------------------------------------------------
 // Imports

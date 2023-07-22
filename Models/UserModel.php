@@ -48,13 +48,13 @@ class UserModel extends Model {
         return $query;
     }
 
-    public function insertData(): bool { 
+    public function insertData(array $data): bool { 
         $query = $this -> pdo -> connect() -> prepare(
             "INSERT INTO `" . UserFields::$tableName . "`
              VALUES (null, ?, ?, ?, ?, ?)"
         ); 
         
-        return $query -> execute(UserFields::getFields());
+        return $query -> execute($data);
     }
 
     public function updateData(): bool {
