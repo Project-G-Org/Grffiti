@@ -72,6 +72,7 @@ spl_autoload_register($autoload);
 $homeController = new HomeController(pageName: 'home');
 $postController = new PostController(pageName: 'post');
 $loginController = new LoginController(pageName: 'login');
+
 // ---------------------------------------------------------
 // Router
 $homeController -> addRoute('/', $homeController);
