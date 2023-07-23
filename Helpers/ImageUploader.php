@@ -18,6 +18,10 @@ class ImageUploader {
             throw new Exception('Not a image file');
         }
 
+        if ($_FILES[$inputName]["size"] > 500000) {
+            throw new Exception('File too large');
+        }
+
         if (move_uploaded_file($_FILES[$inputName]["tmp_name"], $target_file)) {
             echo "The file ". basename($_FILES[$inputName]["name"]) . " has been uploaded.";
         } else {
