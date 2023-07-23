@@ -50,5 +50,9 @@
                         </button>
                     </form>
                 </div>
+                <div id="nav-header-connect">
+                    <button class="nav-header-connect-buttons" id="nav-header-connect-singin">Entrar</button>
+                    <button class="nav-header-connect-buttons" id="nav-header-connect-singup">Registrar</button>
+                </div>
             </nav>
         </header>

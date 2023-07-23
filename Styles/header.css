@@ -119,3 +119,14 @@
     color: #4791FF;
     background: red;
 }
+
+#nav-header-connect{
+    position: absolute;
+    top: 50%;
+    left: 85%;
+    transform: translate(0, -50%);
+}
+
+.nav-header-connect-buttons{
+    
+}
