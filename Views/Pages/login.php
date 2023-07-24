@@ -43,7 +43,7 @@
     <?php else: ?>
         <?php
             if (isset($_POST['register'])) {
-                // $loginController -> register();
+                $loginController -> register();
             }
         ?>
 
