@@ -1,4 +1,7 @@
 import Image from 'next/image'
+import scssVariables from './styles/variables.module.scss'
+
+console.log(scssVariables.primaryColor)
 
 export default function Home() {
   return (

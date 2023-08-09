@@ -5,6 +5,6 @@ WORKDIR /projectg
 
 COPY . .
 RUN npm install --production
-# should use dev?
+
 RUN npm run build
-CMD ["npm", "start"]
+CMD ["npm", "start"] 
